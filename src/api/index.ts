@@ -24,3 +24,14 @@ export const getAgeFromName = async (name: string) => {
 }
 
 
+export function findEndOfFirstWord(str: string) {
+    const firstSpaceIndex = str.indexOf(' ');
+    if (firstSpaceIndex !== -1) {
+        const firstWordSubstring = str.substring(0, firstSpaceIndex);
+        const lastNonSpaceIndex = firstWordSubstring.search(/\S+$/);
+        if (lastNonSpaceIndex !== -1) {
+            return lastNonSpaceIndex + 1;
+        }
+    }
+    return -1;
+}
